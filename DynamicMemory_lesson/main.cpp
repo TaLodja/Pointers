@@ -4,6 +4,8 @@ using namespace std;
 void FillRand(int arr[], const int n);
 void Print(int arr[], const int n);
 
+int* push_back(int arr[], int& n, const int value);
+
 void main()
 {
 	setlocale(LC_ALL, "");
@@ -14,9 +16,43 @@ void main()
 	FillRand(arr, n);
 	Print(arr, n);
 
+	cout << arr << endl;
+	cout << *arr << endl;
+	for (int i = 0; i < n; i++)
+	{
+		cout << *(arr + i) << "\t";
+	}
+	cout << endl;
+
 	int value;
 	cout << "Введите добавляемое значение: "; cin >> value;
-	
+
+	arr = push_back(arr, n, value);
+
+	//7) Значение добавлено, проверяем результат:
+	Print(arr, n);
+
+	delete[] arr;
+}
+
+void FillRand(int arr[], const int n)
+{
+	for (int i = 0; i < n; i++)
+	{
+		arr[i] = rand() % 100;
+	}
+}
+void Print(int arr[], const int n)
+{
+	for (int i = 0; i < n; i++)
+	{
+		cout << arr[i] << "\t";
+	}
+	cout << endl;
+}
+
+int* push_back(int arr[], int& n, const int value)
+{
 	//1) Создаем буферный массив нужного размера:
 	int* buffer = new int[n + 1];
 
@@ -40,24 +76,5 @@ void main()
 	// количество его элементов увеличивается на 1
 	n++;
 
-	//7) Значение добавлено, проверяем результат:
-	Print(arr, n);
-
-	delete[] arr;
-}
-
-void FillRand(int arr[], const int n)
-{
-	for (int i = 0; i < n; i++)
-	{
-		arr[i] = rand() % 100;
-	}
-}
-void Print(int arr[], const int n)
-{
-	for (int i = 0; i < n; i++)
-	{
-		cout << arr[i] << "\t";
-	}
-	cout << endl;
+	return arr;
 }
