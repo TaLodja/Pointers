@@ -19,8 +19,9 @@ void main()
 	int odd_count = 0;
 	for (int i = 0; i < n; i++)
 	{
-		if (arr[i] % 2 == 0) even_count++;
-		else odd_count++;
+		/*if (arr[i] % 2 == 0) even_count++;
+		else odd_count++;*/
+		(arr[i] % 2 == 0 ? even_count : odd_count)++;
 	}
 
 	//2)Выделяем память для четных и нечетных значений соответственно
@@ -30,8 +31,9 @@ void main()
 	//3) Копируем четные и нечетные значения в соответствующие массивы
 	for (int i = 0, j = 0, k = 0; i < n; i++)
 	{
-		if (arr[i] % 2 == 0) even_arr[j++] = arr[i];
-		else odd_arr[k++] = arr[i];
+		/*if (arr[i] % 2 == 0) even_arr[j++] = arr[i];
+		else odd_arr[k++] = arr[i];*/
+		(arr[i] % 2 == 0 ? even_arr[j++] : odd_arr[k++]) = arr[i];
 	}
 
 	//4) Выводим результаты
