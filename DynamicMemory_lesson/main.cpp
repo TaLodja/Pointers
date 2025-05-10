@@ -7,6 +7,7 @@ void Print(int arr[], const int n);
 int* push_back(int arr[], int& n, const int value);
 int* push_front(int arr[], int& n, const int value);
 int* insert(int arr[], int& n, const int value, const int index);
+
 int* pop_back(int arr[], int& n);
 int* pop_front(int arr[], int& n);
 int* erase(int arr[], int& n, const int index);
@@ -42,18 +43,16 @@ void main()
 	Print(arr, n);
 
 	int index;
-	cout << "Введите значение, добавляемое по указанному индексу: "; cin >> value;
-	cout << "Введите индекс: "; cin >> index;
+	cout << "Введите индекс добавляемого элемента: "; cin >> index;
+	cout << "Введите значение элемента, добавляемое по указанному индексу: "; cin >> value;
 	arr = insert(arr, n, value, index);
 	Print(arr, n);
 
 	cout << "Массив после удаления последнего элемента: " << endl;
-	arr = pop_back(arr, n);
-	Print(arr, n);
+	Print(arr = pop_back(arr, n), n);
 
 	cout << "Массив после удаления нулевого элемента: " << endl;
-	arr = pop_front(arr, n);
-	Print(arr, n);
+	Print(arr = pop_front(arr, n), n);
 
 	index--;
 	cout << "Массив после удаления элемента по индексу " << index << ": " << endl;
@@ -72,6 +71,7 @@ void FillRand(int arr[], const int n)
 }
 void Print(int arr[], const int n)
 {
+	cout << arr << ":\n";
 	for (int i = 0; i < n; i++)
 	{
 		cout << arr[i] << "\t";
@@ -114,10 +114,9 @@ int* push_front(int arr[], int& n, const int value)
 		buffer[i + 1] = arr[i];
 	}
 	delete[] arr;
-	arr = buffer;
-	arr[0] = value;
+	buffer[0] = value;
 	n++;
-	return arr;
+	return buffer;
 }
 
 int* insert(int arr[], int& n, const int value, const int index)
@@ -127,20 +126,20 @@ int* insert(int arr[], int& n, const int value, const int index)
 	{
 		(i < index ? buffer[i] : buffer[i + 1]) = arr[i];
 	}
+	/*for (int i = 0; i < index; i++)
+		buffer[i] = arr[i];
+	for (int i = index; i < n; i++)
+		buffer[i + 1] = arr[i];*/
 	delete[] arr;
-	arr = buffer;
-	arr[index] = value;
+	buffer[index] = value;
 	n++;
-	return arr;
+	return buffer;
 }
 
 int* pop_back(int arr[], int& n)
 {
 	int* buffer = new int[--n];
-	for (int i = 0;i < n;i++)
-	{
-		buffer[i] = arr[i];
-	}
+	for (int i = 0;i < n;i++)buffer[i] = arr[i];
 	delete[] arr;
 	return buffer;
 }
@@ -148,10 +147,7 @@ int* pop_back(int arr[], int& n)
 int* pop_front(int arr[], int& n)
 {
 	int* buffer = new int[--n];
-	for (int i = 0; i < n; i++)
-	{
-		buffer[i] = arr[i + 1];
-	}
+	for (int i = 0; i < n; i++)buffer[i] = arr[i + 1];
 	delete[] arr;
 	return buffer;
 }
