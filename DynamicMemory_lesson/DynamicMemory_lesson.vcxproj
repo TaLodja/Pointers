@@ -127,7 +127,29 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Allocate_Clear.cpp" />
+    <ClCompile Include="FillRand.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="pop.cpp" />
+    <ClCompile Include="pop_col.cpp" />
+    <ClCompile Include="pop_row.cpp" />
+    <ClCompile Include="Print.cpp" />
+    <ClCompile Include="push.cpp" />
+    <ClCompile Include="push_col.cpp" />
+    <ClCompile Include="push_row.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Allocate_Clear.h" />
+    <ClInclude Include="constants.h" />
+    <ClInclude Include="FillRand.h" />
+    <ClInclude Include="pop.h" />
+    <ClInclude Include="pop_col.h" />
+    <ClInclude Include="pop_row.h" />
+    <ClInclude Include="Print.h" />
+    <ClInclude Include="push.h" />
+    <ClInclude Include="push_col.h" />
+    <ClInclude Include="push_row.h" />
+    <ClInclude Include="stdafx.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
