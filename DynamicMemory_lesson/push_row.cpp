@@ -2,39 +2,31 @@
 
 template <typename T>T** push_row_back(T** arr, int& rows, const int cols)
 {
-	T** buffer = new T * [rows + 1];
-	for (int i = 0; i < rows; i++)
-	{
-		buffer[i] = arr[i];
-	}
-	delete[] arr;
+	allocate_pp(rows + 1);
+	fori(0, rows) according;
+	del;
 	buffer[rows] = new T[cols]{};
 	rows++;
-	return buffer;
+	ret;
 }
 
 template <typename T>T** push_row_front(T** arr, int& rows, const int cols)
 {
-	T** buffer = new T * [rows + 1];
-	for (int i = 0; i < rows; i++)
-	{
-		buffer[i + 1] = arr[i];
-	}
-	delete[] arr;
+	allocate_pp(rows + 1);
+	fori(0, rows) shift_push;
+	del;
 	buffer[0] = new T[cols]{};
 	rows++;
-	return buffer;
+	ret;
 }
 
 template <typename T>T** insert_row(T** arr, int& rows, const int cols, const int index)
 {
-	T** buffer = new T * [rows + 1];
-	for (int i = 0; i < index; i++)
-		buffer[i] = arr[i];
-	for (int i = index; i < rows; i++)
-		buffer[i + 1] = arr[i];
-	delete[] arr;
+	allocate_pp(rows + 1);
+	fori(0, index) according;
+	fori(index, rows) shift_push;
+	del;
 	buffer[index] = new T[cols]{};
 	rows++;
-	return buffer;
+	ret;
 }

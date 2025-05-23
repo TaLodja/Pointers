@@ -1,4 +1,5 @@
 #pragma once
+#include "constants.h"
 
 template <typename T>T** push_row_back(T** arr, int& rows, const int cols);
 template <typename T>T** push_row_front(T** arr, int& rows, const int cols);

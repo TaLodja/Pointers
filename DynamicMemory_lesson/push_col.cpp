@@ -2,51 +2,43 @@
 
 template <typename T>T** push_col_back(T** arr, const int rows, int& cols)
 {
-	T** buffer = new T * [rows];
+	allocate_pp(rows);
 	Allocate(buffer, rows, cols + 1);
-	for (int i = 0; i < rows; i++)
+	fori(0, rows)
 	{
-		for (int j = 0; j < cols; j++)
-		{
-			buffer[i][j] = arr[i][j];
-		}
+		forj(0, cols) according_2;
 		buffer[i][cols] = 0;
 	}
 	Clear(arr, rows);
 	cols++;
-	return buffer;
+	ret;
 }
 
 template <typename T>T** push_col_front(T** arr, const int rows, int& cols)
 {
-	T** buffer = new T * [rows];
+	allocate_pp(rows);
 	Allocate(buffer, rows, cols + 1);
-	for (int i = 0; i < rows; i++)
+	fori(0, rows)
 	{
 		buffer[i][0] = 0;
-		for (int j = 0; j < cols;j++)
-		{
-			buffer[i][j + 1] = arr[i][j];
-		}
+		forj(0, cols) shift_push_2;
 	}
 	Clear(arr, rows);
 	cols++;
-	return buffer;
+	ret;
 }
 
 template <typename T>T** insert_col(T** arr, const int rows, int& cols, const int index)
 {
-	T** buffer = new T * [rows];
+	allocate_pp(rows);
 	Allocate(buffer, rows, cols + 1);
-	for (int i = 0; i < rows; i++)
+	fori(0, rows)
 	{
-		for (int j = 0; j < index; j++)
-			buffer[i][j] = arr[i][j];
-		for (int j = index; j < cols; j++)
-			buffer[i][j + 1] = arr[i][j];
+		forj(0, index) according_2;
+		forj(index, cols) shift_push_2;
 		buffer[i][index] = 0;
 	}
 	Clear(arr, rows);
 	cols++;
-	return buffer;
+	ret;
 }

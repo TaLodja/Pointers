@@ -1,4 +1,5 @@
 #pragma once
+#include "constants.h"
 
 template <typename T>T* push_back(T arr[], int& n, const T value);
 template <typename T>T* push_front(T arr[], int& n, const T value);

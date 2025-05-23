@@ -30,6 +30,8 @@ void main()
 
 #ifdef DYNAMIC_MEMORY_1
 	int n;
+	int value;
+	int index;
 	cout << "Введите размер исходного массива: "; cin >> n;
 	int* arr = new int[n];
 	cout << "Исходный массив: "<<endl;
@@ -44,11 +46,9 @@ void main()
 	}
 	cout << endl;*/
 
-	int value;
+	
 	cout << "Введите значение, добавляемое в конце массива: "; cin >> value;
-
 	arr = push_back(arr, n, value);
-
 	//7) Значение добавлено, проверяем результат:
 	Print(arr, n);
 
@@ -56,7 +56,7 @@ void main()
 	arr = push_front(arr, n, value);
 	Print(arr, n);
 
-	int index;
+	
 	cout << "Введите индекс добавляемого элемента: "; cin >> index;
 	cout << "Введите значение элемента, добавляемое по указанному индексу: "; cin >> value;
 	arr = insert(arr, n, value, index);
@@ -65,15 +65,14 @@ void main()
 	cout << "Массив после удаления последнего элемента: " << endl;
 	Print(arr = pop_back(arr, n), n);
 
-	cout << "Массив после удаления нулевого элемента: " << endl;
-	Print(arr = pop_front(arr, n), n);
-
-	index--;
 	cout << "Массив после удаления элемента по индексу " << index << ": " << endl;
 	arr = erase(arr, n, index);
 	Print(arr, n);
 
-	delete[] arr;
+	cout << "Массив после удаления нулевого элемента: " << endl;
+	Print(arr = pop_front(arr, n), n);
+
+	del;
 #endif // DYNAMIC_MEMORY_1
 
 #ifdef DYNAMIC_MEMORY_2
@@ -83,10 +82,11 @@ void main()
 	cout << "Введите количество элементов строки: "; cin >> cols;
 	cout << delimiter;
 
-	int** arr = new int* [rows];;
+	int** arr;
 	Allocate(arr, rows, cols);
 
 	FillRand(arr, rows, cols);
+	cout << "Заполнение сделано" << endl;
 	Print(arr, rows, cols);
 	cout << delimiter;
 

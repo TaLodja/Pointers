@@ -2,38 +2,30 @@
 
 template <typename T>T* push_back(T arr[], int& n, const T value)
 {
-	T* buffer = new T[n + 1];
-	for (int i = 0; i < n; i++)
-	{
-		buffer[i] = arr[i];
-	}
-	delete[] arr;
-	buffer[n] = value;
+	allocate_p(n + 1);
+	fori(0, n) according;
+	del;
+	push_val(n);
 	n++;
-	return buffer;
+	ret;
 }
 template <typename T>T* push_front(T arr[], int& n, const T value)
 {
-	T* buffer = new T[n + 1];
-	for (int i = 0; i < n; i++)
-	{
-		buffer[i + 1] = arr[i];
-	}
-	delete[] arr;
-	buffer[0] = value;
+	allocate_p(n + 1);
+	fori(0, n) shift_push;
+	del;
+	push_val(0);
 	n++;
-	return buffer;
+	ret;
 }
 
 template <typename T>T* insert(T arr[], int& n, const T value, const int index)
 {
-	T* buffer = new T[n + 1];
-	for (int i = 0; i < index; i++)
-		buffer[i] = arr[i];
-	for (int i = index; i < n; i++)
-		buffer[i + 1] = arr[i];
-	delete[] arr;
-	buffer[index] = value;
+	allocate_p(n + 1);
+	fori(0, index) according;
+	fori(index, n) shift_push;
+	del;
+	push_val(index);
 	n++;
-	return buffer;
+	ret;
 }
