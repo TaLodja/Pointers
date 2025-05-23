@@ -7,7 +7,7 @@ using std::endl;
 #define tab "\t"
 #define delimiter "\n--------------------------------------------\n"
 
-template<typename T>void Allocate(T** arr, const int rows, const int cols);
+template<typename T>void Allocate(T** &arr, const int rows, const int cols);
 template<typename T>void Clear(T** arr, const int rows);
 
 void FillRand(int arr[], const int n);
@@ -106,7 +106,7 @@ void main()
 	cout << "Введите количество элементов строки: "; cin >> cols;
 	cout << delimiter;
 
-	int** arr = new int* [rows];
+	double** arr;
 	Allocate(arr, rows, cols);
 
 	FillRand(arr, rows, cols);
@@ -165,8 +165,9 @@ void main()
 
 }
 
-template<typename T>void Allocate(T** arr, const int rows, const int cols)
+template<typename T>void Allocate(T** &arr, const int rows, const int cols)
 {
+	arr = new T * [rows];
 	for (int i = 0; i < rows; i++) arr[i] = new T[cols] {};
 }
 
