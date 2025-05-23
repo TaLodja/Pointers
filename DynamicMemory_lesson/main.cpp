@@ -7,7 +7,7 @@ using std::endl;
 #define tab "\t"
 #define delimiter "\n--------------------------------------------\n"
 
-int** Allocate(const int rows, const int cols);
+void Allocate(int** &arr, const int rows, const int cols);
 void Clear(int** arr, const int rows);
 
 void FillRand(int arr[], const int n);
@@ -44,8 +44,8 @@ void insert_col(int** arr, const int rows, int& cols, const int index);
 void erase_col(int** arr, const int rows, int& cols, const int index);
 
 
-#define DYNAMIC_MEMORY_1
-//#define DYNAMIC_MEMORY_2
+//#define DYNAMIC_MEMORY_1
+#define DYNAMIC_MEMORY_2
 
 void main()
 {
@@ -105,7 +105,8 @@ void main()
 	cout << "Введите количество элементов строки: "; cin >> cols;
 	cout << delimiter;
 
-	int** arr = Allocate(rows, cols);
+	int** arr;
+	Allocate(arr, rows, cols);
 
 	FillRand(arr, rows, cols);
 	cout << "Вывод массива через оператотр индексирования:" << endl;
@@ -174,16 +175,15 @@ void main()
 
 }
 
-int** Allocate(const int rows, const int cols)
+void Allocate(int** &arr, const int rows, const int cols)
 {
 	//1) Создаем массив указателей:
-	int** arr = new int* [rows];
+	arr = new int* [rows];
 	//2) Выделяем память под строки двумерного динамического массива:
 	for (int i = 0; i < rows; i++)
 	{
 		arr[i] = new int[cols];
 	}
-	return arr;
 }
 
 void Clear(int** arr, const int rows)
