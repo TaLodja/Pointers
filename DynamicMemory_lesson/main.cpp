@@ -7,7 +7,7 @@ using std::endl;
 #define tab "\t"
 #define delimiter "\n--------------------------------------------\n"
 
-template<typename T>void Allocate(T** &arr, const int rows, const int cols);
+template<typename T>T** Allocate(const int rows, const int cols);
 template<typename T>void Clear(T** arr, const int rows);
 
 void FillRand(int arr[], const int n);
@@ -106,8 +106,9 @@ void main()
 	cout << "Введите количество элементов строки: "; cin >> cols;
 	cout << delimiter;
 
-	double** arr;
-	Allocate(arr, rows, cols);
+	typedef int DataType;
+
+	DataType** arr = Allocate<DataType>(rows, cols);
 
 	FillRand(arr, rows, cols);
 	cout << "Вывод массива через оператотр индексирования:" << endl;
@@ -165,16 +166,18 @@ void main()
 
 }
 
-template<typename T>void Allocate(T** &arr, const int rows, const int cols)
+template<typename T>T** Allocate(const int rows, const int cols)
 {
-	arr = new T * [rows];
+	T** arr = new T * [rows];
 	for (int i = 0; i < rows; i++) arr[i] = new T[cols] {};
+	return arr;
 }
 
 template<typename T>void Clear(T** arr, const int rows)
 {
 	for (int i = 0; i < rows;i++) delete[] arr[i];
 	delete[] arr;
+	arr = nullptr;
 }
 
 void FillRand(int arr[], const int n)
