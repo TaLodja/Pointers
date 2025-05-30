@@ -1,4 +1,5 @@
 #pragma once
+#include "stdafx.h"
 #include "constants.h"
 
 template <typename T>T** pop_row_back(T** arr, int& rows, const int cols);

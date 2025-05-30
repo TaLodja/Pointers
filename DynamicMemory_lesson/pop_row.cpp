@@ -1,26 +1,25 @@
 #include "pop_row.h"
+using std::cout;
+using std::endl;
 
 template <typename T>T** pop_row_back(T** arr, int& rows, const int cols)
 {
-	allocate_pp(--rows);
-	fori(0, rows) according;
-	del;
-	ret;
+	return erase_row(arr, rows, cols, rows-1);
 }
 
 template <typename T>T** pop_row_front(T** arr, int& rows, const int cols)
 {
-	allocate_pp(--rows);
-	fori(0, rows) shift_pop;
-	del;
-	ret;
+	return erase_row(arr, rows, cols, 0);
 }
 
 template <typename T>T** erase_row(T** arr, int& rows, const int cols, const int index)
 {
-	allocate_pp(--rows);
-	fori(0, index) according;
-	fori(index, rows) shift_pop;
-	del;
-	ret;
+	if (index<0 || index>(rows-1))
+	{
+		cout << "Индекс введен не верно: выходит за размер массива." << endl;
+		return nullptr;
+	}
+	delete[] arr[index];
+	arr[index] = nullptr;
+	return erase(arr,rows,index);
 }

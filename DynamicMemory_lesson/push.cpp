@@ -1,31 +1,34 @@
 #include "push.h"
+using std::cout;
+using std::endl;
 
 template <typename T>T* push_back(T arr[], int& n, const T value)
 {
-	allocate_p(n + 1);
-	fori(0, n) according;
-	del;
-	push_val(n);
-	n++;
-	ret;
+	return insert(arr, n, value, n);
 }
 template <typename T>T* push_front(T arr[], int& n, const T value)
 {
-	allocate_p(n + 1);
-	fori(0, n) shift_push;
-	del;
-	push_val(0);
-	n++;
-	ret;
+	return insert(arr, n, value, 0);
 }
 
 template <typename T>T* insert(T arr[], int& n, const T value, const int index)
 {
-	allocate_p(n + 1);
-	fori(0, index) according;
-	fori(index, n) shift_push;
-	del;
-	push_val(index);
+	T* buffer = new T[n + 1];
+	if (buffer == nullptr)
+	{
+		cout << "Ощибка! Память не выделена." << endl;
+		return nullptr;
+	}
+	if (index<0 || index>n)
+	{
+		cout << "Индекс введен не верно: выходит за размер массива." << endl;
+		return nullptr;
+	}
+	fori(0, index) buffer[i] = arr[i];
+	fori(index, n) buffer[i + 1] = arr[i];
+	delete[] arr;
+	arr = nullptr;
+	buffer[index] = value;
 	n++;
-	ret;
+	return buffer;
 }

@@ -1,4 +1,5 @@
 #pragma once
+#include "stdafx.h"
 #include "constants.h"
 
 template <typename T>T* push_back(T arr[], int& n, const T value);

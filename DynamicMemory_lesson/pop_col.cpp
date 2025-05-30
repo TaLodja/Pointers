@@ -1,32 +1,28 @@
 #include "pop_col.h"
+using std::cout;
+using std::endl;
 
-template <typename T>T** pop_col_back(T** arr, const int rows, int& cols)
+template <typename T>void pop_col_back(T** arr, const int rows, int& cols)
 {
-	allocate_pp(rows);
-	Allocate(buffer, rows, --cols);
-	fori(0, rows) forj(0, cols) according_2;
-	Clear(arr, rows);
-	ret;
+	erase_col(arr, rows, cols, cols-1);
 }
 
-template <typename T>T** pop_col_front(T** arr, const int rows, int& cols)
+template <typename T>void pop_col_front(T** arr, const int rows, int& cols)
 {
-	allocate_pp(rows);
-	Allocate(buffer, rows, --cols);
-	fori(0, rows) forj(0, cols) shift_pop_2;
-	Clear(arr, rows);
-	ret;
+	erase_col(arr, rows, cols, 0);
 }
 
-template <typename T>T** erase_col(T** arr, const int rows, int& cols, const int index)
+template <typename T>void erase_col(T** arr, const int rows, int& cols, const int index)
 {
-	allocate_pp(rows);
-	Allocate(buffer, rows, --cols);
-	fori(0, rows)
+	if (index<0 || index>(cols-1))
 	{
-		forj(0, index) according_2;
-		forj(index, cols) shift_pop_2;
+		cout << "Индекс введен не верно: выходит за размер массива." << endl;
+		return;
 	}
-	Clear(arr, rows);
-	ret;
+	for (int i = 0; i < rows; i++)
+	{
+		arr[i] = erase(arr[i], cols, index);
+		cols++;
+	}
+	cols--;
 }

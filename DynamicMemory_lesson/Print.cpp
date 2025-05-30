@@ -5,21 +5,15 @@ using std::endl;
 template <typename T>void Print(T arr[], const int n)
 {
 	//cout << arr << ":\n";
-	for (int i = 0; i < n; i++)
-	{
-		cout << arr[i] << tab;
-	}
+	fori(0,n) cout << arr[i] << tab;
 	cout << endl;
 }
 
 template <typename T>void Print(T** arr, const int rows, const int cols)
 {
-	for (int i = 0; i < rows;i++)
+	fori(0, rows)
 	{
-		for (int j = 0; j < cols;j++)
-		{
-			cout << arr[i][j] << tab;
-		}
+		forj(0, cols) cout << arr[i][j] << tab;
 		cout << endl;
 	}
 	cout << delimiter << endl;

@@ -30,11 +30,12 @@ void main()
 
 #ifdef DYNAMIC_MEMORY_1
 	int n;
-	int value;
+	typedef double DataType;
+	DataType value;
 	int index;
 	cout << "Введите размер исходного массива: "; cin >> n;
-	int* arr = new int[n];
-	cout << "Исходный массив: "<<endl;
+	DataType* arr = new DataType[n];
+	cout << "Исходный массив: " << endl;
 	FillRand(arr, n);
 	Print(arr, n);
 
@@ -46,7 +47,7 @@ void main()
 	}
 	cout << endl;*/
 
-	
+
 	cout << "Введите значение, добавляемое в конце массива: "; cin >> value;
 	arr = push_back(arr, n, value);
 	//7) Значение добавлено, проверяем результат:
@@ -56,7 +57,7 @@ void main()
 	arr = push_front(arr, n, value);
 	Print(arr, n);
 
-	
+
 	cout << "Введите индекс добавляемого элемента: "; cin >> index;
 	cout << "Введите значение элемента, добавляемое по указанному индексу: "; cin >> value;
 	arr = insert(arr, n, value, index);
@@ -82,8 +83,9 @@ void main()
 	cout << "Введите количество элементов строки: "; cin >> cols;
 	cout << delimiter;
 
-	int** arr;
-	Allocate(arr, rows, cols);
+	typedef double DataType;
+
+	DataType** arr = Allocate<DataType>(rows, cols);
 
 	FillRand(arr, rows, cols);
 	cout << "Заполнение сделано" << endl;
@@ -102,14 +104,17 @@ void main()
 	Print(arr = insert_row(arr, rows, cols, index_rows), rows, cols);
 
 	cout << "Массив после добавления столбца в конец: " << endl;
-	Print(arr = push_col_back(arr, rows, cols), rows, cols);
+	push_col_back(arr, rows, cols);
+	Print(arr, rows, cols);
 
 	cout << "Массив после добавления столбца в начало: " << endl;
-	Print(arr = push_col_front(arr, rows, cols), rows, cols);
+	push_col_front(arr, rows, cols);
+	Print(arr, rows, cols);
 
 	cout << "Введите индекс добавляемого столбца: "; cin >> index_cols;
 	cout << "Массив после добавления столбца по указанному индексу: " << endl;
-	Print(arr = insert_col(arr, rows, cols, index_cols), rows, cols);
+	insert_col(arr, rows, cols, index_cols);
+	Print(arr, rows, cols);
 
 	cout << "Массив после удаления строки из его конца: " << endl;
 	Print(arr = pop_row_back(arr, rows, cols), rows, cols);
@@ -121,13 +126,16 @@ void main()
 	Print(arr = pop_row_front(arr, rows, cols), rows, cols);
 
 	cout << "Массив после удаления столбца из его конца: " << endl;
-	Print(arr = pop_col_back(arr, rows, cols), rows, cols);
+	pop_col_back(arr, rows, cols);
+	Print(arr, rows, cols);
 
 	cout << "Массив после удаления столбца по индексу: " << index_cols << endl;
-	Print(arr = erase_col(arr, rows, cols, index_cols), rows, cols);
+	erase_col(arr, rows, cols, index_cols);
+	Print(arr, rows, cols);
 
 	cout << "Массив после удаления столбца из его начала: " << endl;
-	Print(arr = pop_col_front(arr, rows, cols), rows, cols);
+	pop_col_front(arr, rows, cols);
+	Print(arr, rows, cols);
 
 	Clear(arr, rows);
 #endif // DYNAMIC_MEMORY_2

@@ -1,13 +1,22 @@
 #include "Allocate_Clear.h"
+using std::cout;
+using std::endl;
 
-template <typename T>void Allocate(T** &arr, const int rows, const int cols)
+template <typename T>T** Allocate(const int rows, const int cols)
 {
-	arr = new T * [rows];
+	T** arr = new T * [rows];
+	if (arr == nullptr)
+	{
+		cout << "Ошибка! Память не выделена." << endl;
+		return nullptr;
+	}
 	fori(0, rows) arr[i] = new T[cols]{};
+	return arr;
 }
 
 template <typename T>void Clear(T** arr, const int rows)
 {
 	fori(0, rows) delete[] arr[i];
-	del;
+	delete [] arr;
+	arr = nullptr;
 }
