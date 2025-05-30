@@ -1,4 +1,4 @@
-#include "pop.h"
+ï»¿#include "pop.h"
 using std::cout;
 using std::endl;
 
@@ -17,12 +17,12 @@ template <typename T>T* erase(T arr[], int& n, const int index)
 	T* buffer = new T[--n];
 	if (buffer == nullptr)
 	{
-		cout << "Îøèáêà! Ïàìÿòü íå âûäåëåíà!";
+		cout << "ÐžÑˆÐ¸Ð±ÐºÐ°! ÐŸÐ°Ð¼ÑÑ‚ÑŒ Ð½Ðµ Ð²Ñ‹Ð´ÐµÐ»ÐµÐ½Ð°!";
 		return nullptr;
 	}
 	if (index < 0 || index > n)
 	{
-		cout << "Èíäåêñ óêàçàí íå âåðíî, âûõîäèò çà ðàçìåð ìàññèâà." << endl;
+		cout << "Ð˜Ð½Ð´ÐµÐºÑ ÑƒÐºÐ°Ð·Ð°Ð½ Ð½Ðµ Ð²ÐµÑ€Ð½Ð¾, Ð²Ñ‹Ñ…Ð¾Ð´Ð¸Ñ‚ Ð·Ð° Ñ€Ð°Ð·Ð¼ÐµÑ€ Ð¼Ð°ÑÑÐ¸Ð²Ð°." << endl;
 		return nullptr;
 	}
 	fori(0, index) buffer[i] = arr[i];

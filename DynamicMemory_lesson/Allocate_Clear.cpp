@@ -1,4 +1,4 @@
-#include "Allocate_Clear.h"
+ï»¿#include "Allocate_Clear.h"
 using std::cout;
 using std::endl;
 
@@ -7,7 +7,7 @@ template <typename T>T** Allocate(const int rows, const int cols)
 	T** arr = new T * [rows];
 	if (arr == nullptr)
 	{
-		cout << "Îøèáêà! Ïàìÿòü íå âûäåëåíà." << endl;
+		cout << "ÐžÑˆÐ¸Ð±ÐºÐ°! ÐŸÐ°Ð¼ÑÑ‚ÑŒ Ð½Ðµ Ð²Ñ‹Ð´ÐµÐ»ÐµÐ½Ð°." << endl;
 		return nullptr;
 	}
 	fori(0, rows) arr[i] = new T[cols]{};

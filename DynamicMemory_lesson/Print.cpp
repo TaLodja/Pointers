@@ -1,4 +1,4 @@
-#include "Print.h"
+ï»¿#include "Print.h"
 using std::cout;
 using std::endl;
 
@@ -19,7 +19,7 @@ template <typename T>void Print(T** arr, const int rows, const int cols)
 	cout << delimiter << endl;
 }
 
-/*cout << "Âûâîä ìàññèâà ÷åðåç àðèôìåòèêó óêàçàòåëåé è îïåðàòîð ðàçûìåíîâàíèÿ:" << endl;
+/*cout << "Ð’Ñ‹Ð²Ð¾Ð´ Ð¼Ð°ÑÑÐ¸Ð²Ð° Ñ‡ÐµÑ€ÐµÐ· Ð°Ñ€Ð¸Ñ„Ð¼ÐµÑ‚Ð¸ÐºÑƒ ÑƒÐºÐ°Ð·Ð°Ñ‚ÐµÐ»ÐµÐ¹ Ð¸ Ð¾Ð¿ÐµÑ€Ð°Ñ‚Ð¾Ñ€ Ñ€Ð°Ð·Ñ‹Ð¼ÐµÐ½Ð¾Ð²Ð°Ð½Ð¸Ñ:" << endl;
 	for (int i = 0; i < rows; i++)
 	{
 		int* ptr = *(arr + i);

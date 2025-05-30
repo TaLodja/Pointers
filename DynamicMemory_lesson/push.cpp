@@ -1,4 +1,4 @@
-#include "push.h"
+ï»¿#include "push.h"
 using std::cout;
 using std::endl;
 
@@ -16,12 +16,12 @@ template <typename T>T* insert(T arr[], int& n, const T value, const int index)
 	T* buffer = new T[n + 1];
 	if (buffer == nullptr)
 	{
-		cout << "Îùèáêà! Ïàìÿòü íå âûäåëåíà." << endl;
+		cout << "ÐžÑ‰Ð¸Ð±ÐºÐ°! ÐŸÐ°Ð¼ÑÑ‚ÑŒ Ð½Ðµ Ð²Ñ‹Ð´ÐµÐ»ÐµÐ½Ð°." << endl;
 		return nullptr;
 	}
 	if (index<0 || index>n)
 	{
-		cout << "Èíäåêñ ââåäåí íå âåðíî: âûõîäèò çà ðàçìåð ìàññèâà." << endl;
+		cout << "Ð˜Ð½Ð´ÐµÐºÑ Ð²Ð²ÐµÐ´ÐµÐ½ Ð½Ðµ Ð²ÐµÑ€Ð½Ð¾: Ð²Ñ‹Ñ…Ð¾Ð´Ð¸Ñ‚ Ð·Ð° Ñ€Ð°Ð·Ð¼ÐµÑ€ Ð¼Ð°ÑÑÐ¸Ð²Ð°." << endl;
 		return nullptr;
 	}
 	fori(0, index) buffer[i] = arr[i];

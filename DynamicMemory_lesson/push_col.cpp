@@ -1,4 +1,4 @@
-#include "push_col.h"
+ï»¿#include "push_col.h"
 using std::cout;
 using std::endl;
 
@@ -16,7 +16,7 @@ template <typename T>void insert_col(T** arr, const int rows, int& cols, const i
 {
 	if (index<0 || index>cols)
 	{
-		cout << "Èíäåêñ ââåäåí íå âåðíî: âûõîäèò çà ðàçìåð ìàññèâà." << endl;
+		cout << "Ð˜Ð½Ð´ÐµÐºÑ Ð²Ð²ÐµÐ´ÐµÐ½ Ð½Ðµ Ð²ÐµÑ€Ð½Ð¾: Ð²Ñ‹Ñ…Ð¾Ð´Ð¸Ñ‚ Ð·Ð° Ñ€Ð°Ð·Ð¼ÐµÑ€ Ð¼Ð°ÑÑÐ¸Ð²Ð°." << endl;
 		return;
 	}
 	for (int i = 0; i < rows; i++)

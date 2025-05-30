@@ -1,4 +1,4 @@
-#include "pop_row.h"
+ï»¿#include "pop_row.h"
 using std::cout;
 using std::endl;
 
@@ -16,7 +16,7 @@ template <typename T>T** erase_row(T** arr, int& rows, const int cols, const int
 {
 	if (index<0 || index>(rows-1))
 	{
-		cout << "Èíäåêñ ââåäåí íå âåðíî: âûõîäèò çà ðàçìåð ìàññèâà." << endl;
+		cout << "Ð˜Ð½Ð´ÐµÐºÑ Ð²Ð²ÐµÐ´ÐµÐ½ Ð½Ðµ Ð²ÐµÑ€Ð½Ð¾: Ð²Ñ‹Ñ…Ð¾Ð´Ð¸Ñ‚ Ð·Ð° Ñ€Ð°Ð·Ð¼ÐµÑ€ Ð¼Ð°ÑÑÐ¸Ð²Ð°." << endl;
 		return nullptr;
 	}
 	delete[] arr[index];
